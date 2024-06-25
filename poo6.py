@@ -45,8 +45,10 @@ class Motos(Vehiculos):
  
  #########################################################   
 
-class Velectricos():
-    def __init__(self):
+class Velectricos(Vehiculos):
+  
+    def __init__(self,marca, modelo):
+        super().__init__(marca, modelo)
         self.autonimia=100
         
     def caraga_energia(self):
@@ -54,7 +56,7 @@ class Velectricos():
         
 ######################################################### 
 
-class Bicicletas_electricas(Vehiculos,Velectricos):
+class Bicicletas_electricas(Velectricos,Vehiculos):
     pass        
         
 my_moto1 = Motos("Honda", "CBR")
@@ -69,3 +71,7 @@ print("#####################################")
 my_bici = Bicicletas_electricas("Shimano","thor")
 
 my_bici.estado()
+print("#####################################")
+print(isinstance(my_bici,Vehiculos))
+
+print(isinstance(my_moto1,Velectricos))
