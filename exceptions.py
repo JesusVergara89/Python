@@ -8,7 +8,7 @@ def divide():
         print("the value is not acceptable")
     except ZeroDivisionError:
         print("zero division not allow")
-
-    print("operation finished")
+    finally:
+        print("operation finished")
 
 divide()
