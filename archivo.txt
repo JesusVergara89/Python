@@ -1,0 +1,4 @@
+Si estás utilizando un IDE como Visual Studio Code, asegúrate de que el intérprete de Python seleccionado es el correcto. Puedes cambiarlo desde la paleta de comandos (Ctrl+Shift+P) y buscar "Python: Select Interpreter".
+ Asegúrate de estar usando el entorno de Python correcto. Si estás utilizando un entorno virtual (virtualenv, conda, etc.), asegúrate de activarlo antes de ejecutar tu código:
+
+ Asegúrate de estar usando el entorno de Python correcto. Si estás utilizando un entorno virtual (virtualenv, conda, etc.), asegúrate de activarlo antes de ejecutar tu código:
