@@ -50,9 +50,9 @@ class ListaPersonas:
 
 Mi_lista_de_Peronas = ListaPersonas()
 
-p1= Persona("jesus","Masculino",34)
-##p2= Persona("Rogelio","Masculino",50)
-##p3= Persona("Veronica","Femenino",22)
+##p1= Persona("jesus","Masculino",34)
+#p2= Persona("Rogelio","Masculino",50)
+p3= Persona("Veronica","Femenino",22)
 
-Mi_lista_de_Peronas.agregarpersonas(p1)
+Mi_lista_de_Peronas.agregarpersonas(p3)
 Mi_lista_de_Peronas.mostrarInfoFicheroExterno()
