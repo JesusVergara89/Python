@@ -1,6 +1,14 @@
 from tkinter import *
+from tkinter import messagebox
 
 root = Tk()
+
+def infoAdicional():
+    messagebox.showinfo("Procesador de Jesus", "Procesador de texto 2024")
+def salirAplicacion():
+    value = messagebox.askquestion("Salir","¿Deseas salir de la aplicación?")
+    if value == "yes":
+       root.destroy() 
 
 barraMenu=Menu(root)
 root.config(menu=barraMenu, width=300, height=300)
@@ -10,7 +18,7 @@ archivoMenu.add_command(label="Nuevo")
 archivoMenu.add_command(label="Guardar")
 archivoMenu.add_separator()
 archivoMenu.add_command(label="Guardar como")
-archivoMenu.add_command(label="Salir")
+archivoMenu.add_command(label="Salir", command=salirAplicacion)
 
 archivoEdicion = Menu(barraMenu)
 archivoEdicion.add_command(label="Copiar")
@@ -21,7 +29,7 @@ archivoHerramientas = Menu(barraMenu)
 
 archivoAyudas = Menu(barraMenu)
 archivoAyudas.add_command(label="Licencia")
-archivoAyudas.add_command(label="Acerca de")
+archivoAyudas.add_command(label="Acerca de", command=infoAdicional)
 
 barraMenu.add_cascade(label="Archivo", menu=archivoMenu)
 barraMenu.add_cascade(label="Edición", menu=archivoEdicion)
