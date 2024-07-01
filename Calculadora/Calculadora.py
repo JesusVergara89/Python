@@ -29,7 +29,7 @@ button8 = Button(my_frame, text="8", width=3, bd=5, relief="solid", command=lamb
 button8.grid(row=2,column=2)
 button9 = Button(my_frame, text="9", width=3, bd=5, relief="solid", command=lambda:numberPressed('9'))
 button9.grid(row=2,column=3)
-buttonDiv = Button(my_frame, text="/", width=3, bd=5, relief="solid")
+buttonDiv = Button(my_frame, text="/", width=3, bd=5, relief="solid", command=lambda:division(screenNumber.get()))
 buttonDiv.grid(row=2,column=4)
 #---------------------------------------------------------------
 
@@ -108,15 +108,27 @@ def resta(num):
     sign = "-"
     screenNumber.set(total)
 
+def division(num):
+    global result
+    global total
+    global sign
+    if total == 0:
+        total = float(num)
+    else:
+        total = total / float(num)
+    result = "resta"
+    sign = "/"
+    screenNumber.set(total)
+
 def theResult():
     global total
     if sign == "+":
         screenNumber.set(total + float(screenNumber.get()))
     elif sign == "-":
         screenNumber.set(total - float(screenNumber.get()))
+    elif sign == "/":
+        screenNumber.set(total / float(screenNumber.get()))
     total = 0
-
-
 
 
 root.mainloop()
