@@ -13,6 +13,7 @@ my_frame.config(background="#9EE2CE", padx=30, pady=30)
 #-----global variables----------------
 result=""
 total = 0
+sign = ""
 
 #--------------Screen-------------------------------------------
 screenNumber=StringVar()
@@ -59,9 +60,9 @@ buttonZero = Button(my_frame, text="0", width=3, bd=5, relief="solid", command=l
 buttonZero.grid(row=5,column=1)
 buttonDot = Button(my_frame, text=".", width=3, bd=5, relief="solid")
 buttonDot.grid(row=5,column=2)
-buttonSubs = Button(my_frame, text="-", width=3, bd=5, relief="solid")
+buttonSubs = Button(my_frame, text="-", width=3, bd=5, relief="solid", command=lambda:resta(screenNumber.get()))
 buttonSubs.grid(row=5,column=3)
-buttonEqual = Button(my_frame, text="=", width=3, bd=5, relief="solid")
+buttonEqual = Button(my_frame, text="=", width=3, bd=5, relief="solid", command=lambda:theResult())
 buttonEqual.grid(row=5,column=4)
 #---------------------------------------------------------------
 
@@ -78,7 +79,7 @@ def numberPressed(num):
         result = ""
     else:
         screenNumber.set(screenNumber.get() + num)
-
+ 
 def delScreen():
     global result
     global total
@@ -86,13 +87,34 @@ def delScreen():
     result = ""
     total = 0
 
-
 def suma(num):
     global result
     global total
+    global sign
     total += float(num)
     result = "addition"
+    sign = "+"
     screenNumber.set(total)
+
+def resta(num):
+    global result
+    global total
+    global sign
+    if total == 0:
+        total = float(num)
+    else:
+        total = total - float(num)
+    result = "resta"
+    sign = "-"
+    screenNumber.set(total)
+
+def theResult():
+    global total
+    if sign == "+":
+        screenNumber.set(total + float(screenNumber.get()))
+    elif sign == "-":
+        screenNumber.set(total - float(screenNumber.get()))
+    total = 0
 
 
 
