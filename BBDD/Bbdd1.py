@@ -6,8 +6,17 @@ my_cursor=my_conextion.cursor()
 
 #my_cursor.execute("CREATE TABLE IF NOT EXISTS PRODUCTOS (NOMBRE_ARTICULO VARCHAR(50), PRECIO INTEGER, SECCION VARCHAR(20))")
 
-my_cursor.execute("INSERT INTO PRODUCTOS VALUES('CARRO', 25, 'JUEGUETES')")
+#variosProductos = [("pantalon", 24, "ropa"),("vaso",5,"cocina"),("nevera", 230, "cocina")]
 
-my_conextion.commit()
+#my_cursor.executemany("INSERT INTO PRODUCTOS VALUES(?,?,?)",variosProductos)
+
+my_cursor.execute("SELECT * FROM PRODUCTOS")
+
+variosProductos=my_cursor.fetchall()
+
+for product in variosProductos:
+    print(product)
+
+##my_conextion.commit()
 
 my_conextion.close()
