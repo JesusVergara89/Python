@@ -1,22 +1,28 @@
 from tkinter import *
 from tkinter import messagebox
 import sqlite3
+from conectionBBDD import *
+from Salir import *
 
 root = Tk()
+
+#----------Functions------------------------------------
+
+#-------------------------------------------------------
 
 root.title("CRUD with python")
 barraMenu = Menu(root)
 root.config(menu=barraMenu, width=300, height=300)
 
 bbddMenu=Menu(barraMenu, tearoff=0)
-bbddMenu.add_command(label="Conectar")
-bbddMenu.add_command(label="Salir")
+bbddMenu.add_command(label="Conectar", command=conexionBD)
+bbddMenu.add_command(label="Salir", command=lambda:salirAplicación(root))
 
 borrarMenu=Menu(barraMenu, tearoff=0)
 borrarMenu.add_command(label="Borrar campos")
 
 crudMenu=Menu(barraMenu, tearoff=0)
-crudMenu.add_command(label="Crear")
+crudMenu.add_command(label="Crear" )
 crudMenu.add_command(label="Leer")
 crudMenu.add_command(label="Actualizar")
 crudMenu.add_command(label="Borrar")
