@@ -6,6 +6,7 @@ from Salir import *
 from Create import *
 from Delete import *
 from Leer import *
+from Limpiar import *
 
 root = Tk()
 
@@ -26,7 +27,7 @@ bbddMenu.add_command(label="Conectar", command=conexionBD)
 bbddMenu.add_command(label="Salir", command=lambda:salirAplicación(root))
 
 borrarMenu=Menu(barraMenu, tearoff=0)
-borrarMenu.add_command(label="Borrar campos")
+borrarMenu.add_command(label="Borrar campos", command=lambda:cleanData(screenID,screenName, screenPassword, screenApellido,screenDireccion, cuadroTexto))
 
 crudMenu=Menu(barraMenu, tearoff=0)
 crudMenu.add_command(label="Crear", command=lambda:createUser(screenName.get(),screenPassword.get(),screenApellido.get(),screenDireccion.get(),cuadroTexto.get("1.0", END)))
@@ -102,16 +103,16 @@ cuadroTexto.config(yscrollcommand=scrollvert.set)
 #---------------------------------------------------------
 
 #----------Btns----------------------------------------
-btnCrear = Button(btn_frame, text="Create")
+btnCrear = Button(btn_frame, text="Create", command=lambda:createUser(screenName.get(),screenPassword.get(),screenApellido.get(),screenDireccion.get(),cuadroTexto.get("1.0", END)))
 btnCrear.grid(row=1, column=0, sticky="e", padx=10,pady=10)
 
-btnLeer = Button(btn_frame, text="Read")
+btnLeer = Button(btn_frame, text="Read", command=lambda:readUser(screenID.get(),screenID,screenName, screenPassword, screenApellido,screenDireccion, cuadroTexto))
 btnLeer.grid(row=1, column=1, sticky="e", padx=10,pady=10)
 
 btnActualizar = Button(btn_frame, text="Update")
 btnActualizar.grid(row=1, column=2, sticky="e", padx=10,pady=10)
 
-btnEliminar = Button(btn_frame, text="Delete")
+btnEliminar = Button(btn_frame, text="Delete", command=lambda:deleteUser(screenID.get()))
 btnEliminar.grid(row=1, column=3, sticky="e", padx=10,pady=10)
 #---------------------------------------------------------
 
