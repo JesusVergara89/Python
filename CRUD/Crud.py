@@ -5,6 +5,7 @@ from conectionBBDD import *
 from Salir import *
 from Create import *
 from Delete import *
+from Leer import *
 
 root = Tk()
 
@@ -29,7 +30,7 @@ borrarMenu.add_command(label="Borrar campos")
 
 crudMenu=Menu(barraMenu, tearoff=0)
 crudMenu.add_command(label="Crear", command=lambda:createUser(screenName.get(),screenPassword.get(),screenApellido.get(),screenDireccion.get(),cuadroTexto.get("1.0", END)))
-crudMenu.add_command(label="Leer")
+crudMenu.add_command(label="Leer", command=lambda:readUser(screenID.get(),screenID,screenName, screenPassword, screenApellido,screenDireccion, cuadroTexto))
 crudMenu.add_command(label="Actualizar")
 crudMenu.add_command(label="Borrar", command=lambda:deleteUser(screenID.get()))
 
@@ -113,7 +114,6 @@ btnActualizar.grid(row=1, column=2, sticky="e", padx=10,pady=10)
 btnEliminar = Button(btn_frame, text="Delete")
 btnEliminar.grid(row=1, column=3, sticky="e", padx=10,pady=10)
 #---------------------------------------------------------
-
 
 root.mainloop()
 
