@@ -7,6 +7,8 @@ from Create import *
 from Delete import *
 from Leer import *
 from Limpiar import *
+from Actualizar import *
+from Acercade import *
 
 root = Tk()
 
@@ -20,7 +22,7 @@ screenDireccion=StringVar()
 
 root.title("CRUD with python")
 barraMenu = Menu(root)
-root.config(menu=barraMenu, width=300, height=300)
+root.config(menu=barraMenu, width=300, height=300, background="#2F4F4F")
 
 bbddMenu=Menu(barraMenu, tearoff=0)
 bbddMenu.add_command(label="Conectar", command=conexionBD)
@@ -32,12 +34,11 @@ borrarMenu.add_command(label="Borrar campos", command=lambda:cleanData(screenID,
 crudMenu=Menu(barraMenu, tearoff=0)
 crudMenu.add_command(label="Crear", command=lambda:createUser(screenName.get(),screenPassword.get(),screenApellido.get(),screenDireccion.get(),cuadroTexto.get("1.0", END)))
 crudMenu.add_command(label="Leer", command=lambda:readUser(screenID.get(),screenID,screenName, screenPassword, screenApellido,screenDireccion, cuadroTexto))
-crudMenu.add_command(label="Actualizar")
+crudMenu.add_command(label="Actualizar", command=lambda:updateUser(screenID.get(),screenName.get(),screenPassword.get(),screenApellido.get(),screenDireccion.get(),cuadroTexto.get("1.0", END)))
 crudMenu.add_command(label="Borrar", command=lambda:deleteUser(screenID.get()))
 
 ayudaMenu=Menu(barraMenu, tearoff=0)
-ayudaMenu.add_command(label="Licencia")
-ayudaMenu.add_command(label="Acerca de")
+ayudaMenu.add_command(label="Acerca de", command=About)
 
 barraMenu.add_cascade(label="BBDD", menu=bbddMenu)
 barraMenu.add_cascade(label="Borrar", menu=borrarMenu)
@@ -48,9 +49,11 @@ barraMenu.add_cascade(label="Ayuda", menu=ayudaMenu)
 
 input_frame=Frame(root)
 input_frame.pack()
+input_frame.config(background="#2F4F4F")
 
 btn_frame=Frame(root)
 btn_frame.pack()
+btn_frame.config(background="#2F4F4F")
 
 #---------------------------------------------------------
 
@@ -109,7 +112,7 @@ btnCrear.grid(row=1, column=0, sticky="e", padx=10,pady=10)
 btnLeer = Button(btn_frame, text="Read", command=lambda:readUser(screenID.get(),screenID,screenName, screenPassword, screenApellido,screenDireccion, cuadroTexto))
 btnLeer.grid(row=1, column=1, sticky="e", padx=10,pady=10)
 
-btnActualizar = Button(btn_frame, text="Update")
+btnActualizar = Button(btn_frame, text="Update",command=lambda:updateUser(screenID.get(),screenName.get(),screenPassword.get(),screenApellido.get(),screenDireccion.get(),cuadroTexto.get("1.0", END)))
 btnActualizar.grid(row=1, column=2, sticky="e", padx=10,pady=10)
 
 btnEliminar = Button(btn_frame, text="Delete", command=lambda:deleteUser(screenID.get()))
