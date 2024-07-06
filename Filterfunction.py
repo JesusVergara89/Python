@@ -21,5 +21,7 @@ listaEmpleados = [
     Empleado("Antonio", "Botones", 12000)
 ]
 
-for empleado in listaEmpleados:
-    print(empleado)
+values = filter(lambda match: match.salario > 30000,listaEmpleados )
+
+for salarios_altos in values:
+    print(salarios_altos)
