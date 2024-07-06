@@ -3,7 +3,23 @@
         return True
 '''
 
-numeros=[17,24,7,39,8,51,92]
+class Empleado:
+    def __init__(self, nombre, cargo, salario):#the construstor
+        self.nombre = nombre
+        self.cargo=cargo
+        self.salario=salario
+    def __str__(self):
+        return "{} que trabaja como {} y tiene un salario de {} euros".format(self.nombre, self.cargo,self.salario)
+    
 
+listaEmpleados = [
+    Empleado("Juan", "Director", 75000),
+    Empleado("Jesus", "CEO", 200000),
+    Empleado("Rogelio", "Chief", 120000),
+    Empleado("Maria", "Secretaria", 45000),
+    Empleado("Sara", "Administrador", 24000),
+    Empleado("Antonio", "Botones", 12000)
+]
 
-print(list(filter(lambda numero_par: numero_par%2==0,numeros)))
+for empleado in listaEmpleados:
+    print(empleado)
